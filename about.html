@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Elegant Wear</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2B48C;
+            --accent-color: #C19A6B;
+            --light-color: #F5F5F5;
+            --dark-color: #333;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fefefe;
+            color: var(--dark-color);
+        }
+        
+        .brand-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-color);
+            margin: 0 10px;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/abou2_image.webp');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--secondary-color);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .about-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .mission-vision {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .values-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .values-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .values-list li:before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .team-member {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .team-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--secondary-color);
+        }
+        
+        .team-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .team-role {
+            color: var(--primary-color);
+            font-style: italic;
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 500;
+            border-radius: 30px;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer h5 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .team-img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand brand-font" href="index.html">Elegant Wear</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="summer-collection.html">Summer Collection</a></li>
+                            <li><a class="dropdown-item" href="winter-collection.html">Winter Collection</a></li>
+                            <li><a class="dropdown-item" href="formal-wear.html">Formal Wear</a></li>
+                            <li><a class="dropdown-item" href="casual-wear.html">Casual Wear</a></li>
+                            <li><a class="dropdown-item" href="party-wear.html">Party Wear</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="new-arrivals.html">New Arrivals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-dark me-2"><i class="fas fa-search"></i></a>
+                    <a href="#" class="btn btn-outline-dark me-2"><i class="fas fa-user"></i></a>
+                    <a href="#" class="btn btn-outline-dark" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge bg-primary" id="cartCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="brand-font display-4">About Elegant Wear</h1>
+            <p class="lead">Crafting Tradition with Contemporary Elegance</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Our Story</h2>
+                    <div class="about-content">
+                        <p>Founded in 2010, Elegant Wear began as a small boutique in Karachi with a simple vision: to provide women with high-quality, beautifully designed unstitched clothes that blend traditional craftsmanship with contemporary style.</p>
+                        <p>What started as a passion project has now grown into one of Pakistan's most trusted brands for women's fashion. Over the years, we've stayed true to our core values of quality, authenticity, and customer satisfaction.</p>
+                        <p>Today, Elegant Wear serves customers across Pakistan and internationally, bringing our unique blend of tradition and modernity to women who appreciate fine fabrics and exquisite designs.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="images/about_image.webp" class="img-fluid rounded shadow" alt="Our Story">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="mission-vision">
+                        <h3 class="mb-4"><i class="fas fa-bullseye me-2 text-primary"></i>Our Mission</h3>
+                        <p>To empower women through fashion by providing high-quality, elegant unstitched clothing that celebrates their individuality while honoring traditional craftsmanship. We aim to make every woman feel confident, beautiful, and uniquely herself.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mission-vision">
+                        <h3 class="mb-4"><i class="fas fa-eye me-2 text-primary"></i>Our Vision</h3>
+                        <p>To become the leading brand for women's unstitched clothing in South Asia, recognized for our commitment to quality, innovation in design, and dedication to preserving traditional textile arts while adapting to contemporary fashion trends.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Our Values</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="text-center p-4">
+                        <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-star fa-2x text-white"></i>
+                        </div>
+                        <h4>Quality First</h4>
+                        <p>We source only the finest fabrics and employ skilled artisans to ensure every piece meets our high standards of craftsmanship.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="text-center p-4">
+                        <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-users fa-2x text-white"></i>
+                        </div>
+                        <h4>Customer Focus</h4>
+                        <p>Our customers are at the heart of everything we do. We listen to their needs and continuously improve based on their feedback.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="text-center p-4">
+                        <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-leaf fa-2x text-white"></i>
+                        </div>
+                        <h4>Sustainability</h4>
+                        <p>We are committed to ethical sourcing and sustainable practices that respect both people and the environment.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6 mb-4">
+                    <div class="text-center p-4">
+                        <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-lightbulb fa-2x text-white"></i>
+                        </div>
+                        <h4>Innovation</h4>
+                        <p>We continuously explore new designs, patterns, and techniques to keep our collections fresh and relevant.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="text-center p-4">
+                        <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-hands-helping fa-2x text-white"></i>
+                        </div>
+                        <h4>Community</h4>
+                        <p>We support local artisans and contribute to community development initiatives that empower women.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-number">12+</div>
+                    <div class="stat-label">Years of Excellence</div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-number">50,000+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Unique Designs</div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Cities Served</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Meet Our Team</h2>
+            <p class="text-center mb-5">Behind Elegant Wear is a dedicated team of fashion enthusiasts, designers, and customer service professionals committed to bringing you the best.</p>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="team-img" alt="Sarah Khan">
+                        <h4 class="team-name">Sarah Khan</h4>
+                        <p class="team-role">Founder & CEO</p>
+                        <p>With over 15 years in fashion industry, Sarah's vision drives Elegant Wear's success.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616c0763205?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="team-img" alt="Amina Ahmed">
+                        <h4 class="team-name">Amina Ahmed</h4>
+                        <p class="team-role">Head Designer</p>
+                        <p>Amina brings innovative designs that blend traditional motifs with contemporary aesthetics.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="team-img" alt="Bilal Hassan">
+                        <h4 class="team-name">Bilal Hassan</h4>
+                        <p class="team-role">Operations Manager</p>
+                        <p>Bilal ensures smooth operations and timely delivery of all orders across Pakistan.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="team-img" alt="Fatima Javed">
+                        <h4 class="team-name">Fatima Javed</h4>
+                        <p class="team-role">Customer Relations</p>
+                        <p>Fatima leads our customer service team, ensuring every client has a wonderful experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5">
+        <div class="container text-center">
+            <h2 class="section-title">Join the Elegant Wear Family</h2>
+            <p class="lead mb-4">Discover why thousands of women trust Elegant Wear for their special occasions and everyday elegance.</p>
+            <a href="index.html" class="btn btn-primary btn-lg me-3">Shop Now</a>
+            <a href="contact.html" class="btn btn-outline-primary btn-lg">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="brand-font">Elegant Wear</h5>
+                    <p>Premium unstitched clothes for women, blending tradition with contemporary style.</p>
+                    <div class="social-links">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Shop</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="new-arrivals.html">New Arrivals</a></li>
+                        <li><a href="summer-collection.html">Summer Collection</a></li>
+                        <li><a href="winter-collection.html">Winter Collection</a></li>
+                        <li><a href="sale.html">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Information</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="shipping.html">Shipping Policy</a></li>
+                        <li><a href="returns.html">Returns & Refunds</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contact Us</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> 123 Fashion Street, Karachi, Pakistan</p>
+                    <p><i class="fas fa-phone me-2"></i> +92 300 1234567</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@elegantwear.com</p>
+                </div>
+            </div>
+            <div class="text-center pt-4 border-top">
+                <p>&copy; 2023 Elegant Wear. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Simple script to highlight the current page in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

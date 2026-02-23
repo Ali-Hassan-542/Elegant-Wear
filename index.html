@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elegant Wear - Women's Unstitched Clothes</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Your main CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Small custom styles for new sections (you can move to style.css) -->
+  <style>
+    /* --- New section styles --- */
+    .hero-carousel .carousel-item{
+      min-height: 420px;
+      background-color: #f5f5f5;
+      background-position: center;
+      background-size: cover;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      position:relative;
+    }
+    .hero-caption {
+      background: rgba(0,0,0,0.45);
+      padding: 1.25rem 1.5rem;
+      border-radius: 10px;
+      text-align:center;
+    }
+    .category-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+      height:220px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fff;
+    }
+    .category-card img { width:100%; height:100%; object-fit:cover; display:block; }
+    .category-overlay {
+      position:absolute;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      background: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.45));
+      padding: 1rem;
+      text-align:center;
+    }
+    .view-all-btn {
+      display:block;
+      margin: 24px auto 0;
+      text-align:center;
+    }
+
+     /* Newsletter - premium look */
+    .newsletter-card{
+      background: linear-gradient(135deg, rgba(13,18,27,0.98), rgba(32,41,55,0.95));
+      color:#fff;
+      border-radius:14px;
+      padding:28px;
+      box-shadow: 0 18px 50px rgba(2,6,23,0.45);
+    }
+    .newsletter-card h3{ font-family:'Playfair Display', serif; margin-bottom:6px; color:#fff; }
+    .newsletter-card p{ color: rgba(255,255,255,0.82); margin-bottom:16px; }
+    .newsletter-input {
+      border-radius:10px 0 0 10px;
+      border:0;
+      padding:14px 16px;
+      min-width:0;
+    }
+   /* make sure this goes after bootstrap CSS or in your style.css at end */
+.newsletter-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 0 10px 10px 0;
+  padding: 12px 18px;
+  /* vivid yellow gradient */
+  background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 100%) !important;
+  border: 0 !important;
+  color: #111 !important;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(249,115,22,0.18);
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+
+    /* Brands logos */
+    .brands-row img { max-height:60px; opacity: .85; filter:grayscale(10%); transition:all .25s ease; }
+    .brands-row img:hover { transform:translateY(-4px); opacity: 1; filter:none; }
+
+    /* Testimonials - premium card */
+    .testimonial-card {
+      background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%);
+      border-radius: 12px;
+      padding: 26px;
+      box-shadow: 0 18px 40px rgba(2,6,23,0.06);
+      position:relative;
+      overflow:hidden;
+    }
+    .testimonial-quote {
+      font-size:1.05rem;
+      color:#111827;
+      margin:0 0 12px 0;
+      line-height:1.6;
+      position:relative;
+      padding-left:36px;
+    }
+    .testimonial-quote::before{
+      content: "“";
+      position:absolute;
+      left:0;
+      top:-6px;
+      font-size:40px;
+      color: rgba(0,0,0,0.06);
+      font-weight:700;
+      transform:translateY(-4px);
+    }
+    .testimonial-author {
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .testimonial-author img{
+      width:56px;
+      height:56px;
+      object-fit:cover;
+      border-radius:50%;
+      border:4px solid #fff;
+      box-shadow:0 6px 18px rgba(2,6,23,0.08);
+    }
+    .author-name { font-weight:700; color:#111827; }
+    .author-meta { color:var(--muted); font-size:.9rem; }
+
+    /* testimonial rating small stars */
+    .stars { color: #f59e0b; font-size: .95rem; }
+
+ /* small responsive tweaks */
+    @media (max-width: 992px){
+      .hero-carousel .carousel-item{ min-height: 360px; }
+      .category-card { height:160px; }
+      .newsletter-card { padding:20px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation (kept from original) -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand brand-font" href="index.html">Elegant Wear</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown">Categories</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="summer.html">Summer Collection</a></li>
+              <li><a class="dropdown-item" href="winter.html">Winter Collection</a></li>
+              <li><a class="dropdown-item" href="casual.html">Casual Wear</a></li>
+              <li><a class="dropdown-item" href="festive.html">Festive Collection </a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="new_arrival.html">New Arrivals</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="d-flex">
+          <a href="#" class="btn btn-outline-dark me-2"><i class="fas fa-search"></i></a>
+          <a href="#" class="btn btn-outline-dark me-2"><i class="fas fa-user"></i></a>
+          <a href="#" class="btn btn-outline-dark" id="cartIcon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="badge bg-primary" id="cartCount">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section (replaced with 5-slide carousel) -->
+  <section class="hero-section py-0" id="home">
+    <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image:url('images/hero1.webp'); background-size:cover;">
+          <div class="container">
+            <div class="hero-caption mx-auto" style="max-width:720px;">
+              <h1 class="display-4 brand-font">New Season — Elegant Arrivals</h1>
+              <p class="mb-3">Discover premium unstitched cloths with curated designs.</p>
+              <a href="#new-arrivals" class="btn btn-light btn-lg">Shop New Arrivals</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image:url('images/hero2.webp');">
+          <div class="container">
+            <div class="hero-caption mx-auto" style="max-width:720px;">
+              <h2 class="brand-font">Summer Collection</h2>
+              <p>Light, breathable fabrics — shop summer prints.</p>
+              <a href="#shop" class="btn btn-light">Explore</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item" style="background-image:url('images/hero3.webp');">
+          <div class="container">
+            <div class="hero-caption mx-auto" style="max-width:720px;">
+              <h2 class="brand-font">Festive Picks</h2>
+              <p>Hand-embroidered pieces for celebrations.</p>
+              <a href="#shop" class="btn btn-light">Shop Festive</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carousel-item" style="background-image:url('images/hero4.webp');">
+          <div class="container">
+            <div class="hero-caption mx-auto" style="max-width:720px;">
+              <h2 class="brand-font">Luxury Fabrics</h2>
+              <p>Silk and organza — premium textures for special days.</p>
+              <a href="#new-arrivals" class="btn btn-light">View Collection</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="carousel-item" style="background-image:url('images/hero17.webp');">
+          <div class="container">
+            <div class="hero-caption mx-auto" style="max-width:720px;">
+              <h2 class="brand-font">Daily Wear Essentials</h2>
+              <p>Comfortable & elegant everyday choices.</p>
+              <a href="#shop" class="btn btn-light">Browse</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+
+  <!-- Shop By Category (2 slides × 3 categories each) -->
+<section class="py-5" id="shop">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="section-title">Shop By Category</h2>
+      <a href="all-products.html" class="btn btn-outline-primary">View All Categories</a>
+    </div>
+
+    <div id="categoryCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+      <!-- Indicators -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#categoryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <!-- Slide 1: categories 1-3 -->
+        <div class="carousel-item active">
+          <div class="row g-3">
+            <div class="col-lg-4 col-md-6">
+              <div class="category-card">
+                <img src="images/hero10.avif" alt="Summer Collection">
+                <div class="category-overlay">
+                  <h5>Summer Collection</h5>
+                  <a class="btn btn-sm btn-light mt-2" href="#summer-collection">Explore</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="category-card">
+                <img src="images/hero11.webp" alt="Winter Collection">
+                <div class="category-overlay">
+                  <h5>Winter Collection</h5>
+                  <a class="btn btn-sm btn-light mt-2" href="#winter-collection">Explore</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="category-card">
+                <img src="images/hero12.webp" alt="Formal Wear">
+                <div class="category-overlay">
+                  <h5>Formal Wear</h5>
+                  <a class="btn btn-sm btn-light mt-2" href="#formal-wear">Explore</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: categories 4-6 -->
+        <div class="carousel-item">
+          <div class="row g-3">
+            <div class="col-lg-4 col-md-6">
+              <div class="category-card">
+                <img src="images/hero13.jpg" alt="Casual Wear">
+                <div class="category-overlay">
+                  <h5>Casual Wear</h5>
+                  <a class="btn btn-sm btn-light mt-2" href="#casual-wear">Explore</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="category-card">
+                <img src="images/hero14.avif" alt="Luxury Fabrics">
+                <div class="category-overlay">
+                  <h5>Luxury Fabrics</h5>
+                  <a class="btn btn-sm btn-light mt-2" href="#luxury-fabrics">Explore</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="category-card">
+                <img src="images/hero15.webp" alt="Unstitched Essentials">
+                <div class="category-overlay">
+                  <h5>Unstitched Essentials</h5>
+                  <a class="btn btn-sm btn-light mt-2" href="#essentials">Explore</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#categoryCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#categoryCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Featured Products (New Arrivals) + VIEW ALL button -->
+  <section class="py-5 bg-light" id="new-arrivals">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="section-title text-center">New Arrivals</h2>
+        <!-- <a href="all-products.html" class="btn btn-outline-primary">View All Products</a> view all -->
+      </div>
+
+      <div class="row" id="product-list">
+        <!-- Products will be loaded here by JavaScript (kept from original) -->
+      </div>
+
+      <!-- View all (redundant CTA under products as requested) -->
+      <div class="view-all-btn">
+        <a href="all-products.html" class="btn btn-primary btn-lg">View All Products</a>
+      </div>
+    </div>
+  </section>
+
+<!-- ====== Seasonal Promo Section ====== -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4">
+      
+      <!-- Promo 1 -->
+      <div class="col-md-6 d-flex">
+        <div class="promo-card d-flex flex-column flex-md-row align-items-center p-4 rounded shadow-sm w-100 h-100" style="background:#f9f9ff;">
+          <div class="flex-grow-1">
+            <h6 class="text-uppercase text-muted fw-bold mb-2">20% OFF THE ALL ORDER</h6>
+            <h2 class="fw-bold">Spring Collection</h2>
+            <a href="#shop" class="btn btn-outline-dark mt-3">Shop Now</a>
+          </div>
+          <div class="ms-md-3 mt-3 mt-md-0">
+            <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=400&q=60" 
+                 alt="Spring Collection" class="img-fluid rounded" style="max-height:220px; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+
+      <!-- Promo 2 -->
+      <div class="col-md-6 d-flex">
+        <div class="promo-card d-flex flex-column flex-md-row align-items-center p-4 rounded shadow-sm w-100 h-100" style="background:#f9f9ff;">
+          <div class="flex-grow-1">
+            <h6 class="text-uppercase text-muted fw-bold mb-2">20% OFF THE ALL ORDER</h6>
+            <h2 class="fw-bold">Winter Collection</h2>
+            <a href="#shop" class="btn btn-outline-dark mt-3">Shop Now</a>
+          </div>
+          <div class="ms-md-3 mt-3 mt-md-0">
+            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=400&q=60" 
+                 alt="Winter Collection" class="img-fluid rounded" style="max-height:220px; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ====== End Seasonal Promo ====== -->
+ 
+
+<!-- ====== Features Section ====== -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row text-center g-4">
+      
+      <!-- Free Shipping -->
+      <div class="col-md-4">
+        <div class="p-4 bg-white rounded shadow-sm h-100">
+          <div class="mb-3">
+            <i class="fas fa-truck-fast fa-2x text-warning"></i>
+          </div>
+          <h5 class="fw-bold">Free Shipping</h5>
+          <p class="text-muted mb-0">Nationwide delivery on all orders without extra charges.</p>
+        </div>
+      </div>
+
+      <!-- Easy Returns -->
+      <div class="col-md-4">
+        <div class="p-4 bg-white rounded shadow-sm h-100">
+          <div class="mb-3">
+            <i class="fas fa-rotate-left fa-2x text-warning"></i>
+          </div>
+          <h5 class="fw-bold">Easy Returns</h5>
+          <p class="text-muted mb-0">15-day hassle-free return & exchange policy.</p>
+        </div>
+      </div>
+
+      <!-- Happy Clients -->
+      <div class="col-md-4">
+        <div class="p-4 bg-white rounded shadow-sm h-100">
+          <div class="mb-3">
+            <i class="fas fa-smile-beam fa-2x text-warning"></i>
+          </div>
+          <h5 class="fw-bold">Happy Clients</h5>
+          <p class="text-muted mb-0">Thousands of satisfied customers trust Elegant Wear.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ====== End Features Section ====== -->
+
+
+<!-- Newsletter (ultra premium look) -->
+<section class="py-5" id="newsletter">
+  <div class="container">
+    <div class="newsletter-card mx-auto text-center position-relative overflow-hidden" style="max-width:960px;">
+      <!-- subtle background shapes -->
+      <div class="position-absolute top-0 start-0 w-100 h-100" 
+           style="background: radial-gradient(circle at top left, rgba(255,255,255,0.08), transparent 70%),
+                  radial-gradient(circle at bottom right, rgba(255,255,255,0.05), transparent 70%);">
+      </div>
+
+      <div class="row align-items-center position-relative z-1">
+        <div class="col-md-6 text-md-start mb-4 mb-md-0">
+          <h3 class="fw-bold" style="font-family:'Playfair Display', serif;">Stay in the Loop</h3>
+          <p class="mb-2">Join our community for early access to <strong>new arrivals</strong>, special offers, and members-only previews.</p>
+          <div class="small text-white-50"><i class="fas fa-shield-alt me-1"></i> 100% secure — unsubscribe anytime.</div>
+        </div>
+
+        <div class="col-md-6">
+          <form id="newsletterForm" class="d-flex gap-0 shadow-sm rounded-pill overflow-hidden bg-white">
+            <input type="email" id="newsletterEmail" 
+                   class="form-control border-0 px-3 py-3 rounded-start-pill flex-grow-1" 
+                   placeholder="Enter your email" required>
+            <button class="btn newsletter-btn rounded-end-pill px-4" type="submit">
+              <i class="fas fa-envelope me-2"></i> Subscribe
+            </button>
+          </form>
+          <div class="form-text text-light mt-2">We respect your privacy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Brands logos section -->
+  <section class="py-5 bg-white" id="brands">
+    <div class="container text-center">
+      <h4 class="mb-4">Brands We Carry</h4>
+      <div class="row g-3 align-items-center brands-row justify-content-center">
+        <div class="col-6 col-md-2 text-center">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Levis_Logo.svg" alt="Brand 1" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-2 text-center">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Adidas_Logo.svg" alt="Brand 2" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-2 text-center">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Gucci_logo.svg" alt="Brand 3" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-2 text-center">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Nike_logo.svg" alt="Brand 4" class="img-fluid">
+        </div>
+        <div class="col-6 col-md-2 text-center">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Prada_logo.svg" alt="Brand 5" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials (premium look) -->
+  <section class="py-5" id="testimonials">
+    <div class="container">
+      <h4 class="text-center mb-4">What our customers say</h4>
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <div class="testimonial-card">
+                  <p class="testimonial-quote">Absolutely beautiful fabrics, and delivery was quicker than expected. The embroidery detail is pristine.</p>
+                  <div class="d-flex justify-content-between align-items-center mt-3">
+                    <div class="testimonial-author">
+                      <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Aisha">
+                      <div>
+                        <div class="author-name">Aisha R.</div>
+                        <div class="author-meta">Karachi, Pakistan</div>
+                      </div>
+                    </div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <div class="testimonial-card">
+                  <p class="testimonial-quote">Great colour accuracy and very helpful customer service. The fabric feels premium and true to the photos.</p>
+                  <div class="d-flex justify-content-between align-items-center mt-3">
+                    <div class="testimonial-author">
+                      <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Sana">
+                      <div>
+                        <div class="author-name">Sana K.</div>
+                        <div class="author-meta">Lahore, Pakistan</div>
+                      </div>
+                    </div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <div class="testimonial-card">
+                  <p class="testimonial-quote">Excellent value for money. The textures are luxurious and customer support was very responsive.</p>
+                  <div class="d-flex justify-content-between align-items-center mt-3">
+                    <div class="testimonial-author">
+                      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Fatima">
+                      <div>
+                        <div class="author-name">Fatima Z.</div>
+                        <div class="author-meta">Islamabad, Pakistan</div>
+                      </div>
+                    </div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Sidebar & Checkout & Footer (kept from original file) -->
+
+  <!-- <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h4>Your Shopping Cart</h4>
+      <button class="btn-close" id="closeCart"></button>
+    </div>
+    <div id="cartItems">
+      <p class="text-muted text-center" id="emptyCartMsg">Your cart is empty</p>
+    </div>
+    <div class="cart-total mt-4 pt-4 border-top">
+      <div class="d-flex justify-content-between mb-2"><span>Subtotal:</span><span id="cartSubtotal">Rs. 0</span></div>
+      <div class="d-flex justify-content-between mb-3"><span>Shipping:</span><span id="cartShipping">Rs. 200</span></div>
+      <div class="d-flex justify-content-between fw-bold fs-5"><span>Total:</span><span id="cartTotal">Rs. 0</span></div>
+      <button class="btn btn-primary w-100 mt-3" id="checkoutBtn">Proceed to Checkout</button>
+    </div>
+  </div> -->
+
+  <!-- Checkout Page (hidden by default) -->
+  <!-- <section class="checkout-page py-5" id="checkoutPage" style="display:none;">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Checkout</h2>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header bg-light">
+              <h5 class="mb-0">Shipping Information</h5>
+            </div>
+            <div class="card-body">
+              <form id="checkoutForm">
+                <div class="row">
+                  <div class="col-md-6 mb-3"><label for="firstName" class="form-label">First Name</label><input type="text" class="form-control" id="firstName" required></div>
+                  <div class="col-md-6 mb-3"><label for="lastName" class="form-label">Last Name</label><input type="text" class="form-control" id="lastName" required></div>
+                </div>
+                <div class="mb-3"><label for="email" class="form-label">Email</label><input type="email" class="form-control" id="email" required></div>
+                <div class="mb-3"><label for="address" class="form-label">Address</label><input type="text" class="form-control" id="address" required></div>
+                <div class="row">
+                  <div class="col-md-6 mb-3"><label for="city" class="form-label">City</label><input type="text" class="form-control" id="city" required></div>
+                  <div class="col-md-6 mb-3"><label for="zipCode" class="form-label">ZIP Code</label><input type="text" class="form-control" id="zipCode" required></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header bg-light"><h5 class="mb-0">Order Summary</h5></div>
+            <div class="card-body">
+              <div id="checkoutSummary"></div>
+              <div class="d-grid mt-3"><button class="btn btn-primary" id="placeOrderBtn">Place Order</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Footer (kept from original) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5 class="brand-font">Elegant Wear</h5>
+          <p>Premium unstitched clothes for women, blending tradition with contemporary style.</p>
+          <div class="social-links">
+            <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Shop</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Summer Collection</a></li>
+            <li><a href="#">Winter Collection</a></li>
+            <li><a href="#">Sale</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Information</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Returns & Refunds</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Contact Us</h5>
+          <p><i class="fas fa-map-marker-alt me-2"></i> 123 Fashion Street, Karachi, Pakistan</p>
+          <p><i class="fas fa-phone me-2"></i> +92 300 1234567</p>
+          <p><i class="fas fa-envelope me-2"></i> info@elegantwear.com</p>
+        </div>
+      </div>
+      <div class="text-center pt-4 border-top">
+        <p>&copy; 2023 Elegant Wear. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Keep original product + cart JS (kept and slightly adjusted to not conflict) -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    // remove duplicate #home sections (keep first)
+    const homes = document.querySelectorAll('section#home');
+    if (homes.length > 1) {
+      for (let i = 1; i < homes.length; i++) homes[i].remove();
+    }
+    // remove duplicate heroCarousel elements (keep first)
+    const heroes = document.querySelectorAll('#heroCarousel');
+    if (heroes.length > 1) {
+      for (let i = 1; i < heroes.length; i++) heroes[i].remove();
+    }
+    // ensure carousel is initialized (Bootstrap 5)
+    try {
+      const el = document.getElementById('heroCarousel');
+      if (el) {
+        // Re-init to make sure settings apply
+        if (typeof bootstrap !== 'undefined' && bootstrap.Carousel) {
+          new bootstrap.Carousel(el, { interval: 4800, ride: 'carousel', pause: 'hover', wrap: true });
+        }
+      }
+    } catch(e) { console.warn('Carousel init error', e); }
+  });
+
+    // === Original products array and cart code (kept from your file) ===
+    const products = [
+      { id: 1, name: "Floral Print Lawn", price: 4500, image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=668&q=80", category: "summer-collection", description: "Beautiful floral print lawn suit with chiffon dupatta" },
+      { id: 2, name: "Embroidered Organza", price: 8500, image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=668&q=80", category: "party-wear", description: "Elegant embroidered organza suit for special occasions" },
+      { id: 3, name: "Winter Velvet", price: 7200, image: "https://images.unsplash.com/photo-1485231183945-fffde14559c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=668&q=80", category: "winter-collection", description: "Luxurious velvet suit perfect for winter weddings" },
+      { id: 4, name: "Cotton Linen Blend", price: 3800, image: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&auto=format&fit=crop&w=668&q=80", category: "casual-wear", description: "Comfortable cotton linen blend for daily wear" },
+      { id: 5, name: "Silk Saree", price: 12000, image: "https://images.unsplash.com/photo-1566478989037-eec170784d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=668&q=80", category: "formal-wear", description: "Pure silk saree with intricate zari work" },
+      { id: 6, name: "Chiffon Evening Gown", price: 9500, image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=668&q=80", category: "party-wear", description: "Elegant chiffon evening gown with sequin work" }
+    ];
+
+    // Cart logic (kept from your file)
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function displayProducts() {
+      const productList = document.getElementById('product-list');
+      productList.innerHTML = '';
+      products.forEach(product => {
+        const productCard = `
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card product-card h-100">
+              <img src="${product.image}" class="card-img-top product-img" alt="${product.name}">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title product-title">${product.name}</h5>
+                <p class="card-text">${product.description}</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <span class="product-price">Rs. ${product.price.toLocaleString()}</span>
+                  <button class="btn btn-primary add-to-cart" data-id="${product.id}">
+                    <i class="fas fa-shopping-cart me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        productList.innerHTML += productCard;
+      });
+
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+          const productId = parseInt(this.getAttribute('data-id'));
+          addToCart(productId);
+        });
+      });
+    }
+
+    // other cart functions (unchanged)...
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      const existingItem = cart.find(item => item.id === productId);
+      if (existingItem) existingItem.quantity += 1;
+      else cart.push({ id: product.id, name: product.name, price: product.price, image: product.image, quantity: 1 });
+      updateCart();
+      showNotification(`${product.name} added to cart!`);
+    }
+
+    function updateCart() {
+      localStorage.setItem('cart', JSON.stringify(cart));
+      const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+      document.getElementById('cartCount').textContent = cartCount;
+      const cartItems = document.getElementById('cartItems');
+      const emptyCartMsg = document.getElementById('emptyCartMsg');
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<p class="text-muted text-center">Your cart is empty</p>';
+        emptyCartMsg.style.display = 'block';
+      } else {
+        emptyCartMsg.style.display = 'none';
+        cartItems.innerHTML = '';
+        cart.forEach(item => {
+          const cartItem = `
+            <div class="cart-item d-flex mb-3">
+              <img src="${item.image}" class="cart-item-img me-3" style="width:64px;height:64px;object-fit:cover;border-radius:6px;" alt="${item.name}">
+              <div class="cart-item-details">
+                <h6>${item.name}</h6>
+                <p class="mb-1">Rs. ${item.price.toLocaleString()}</p>
+                <div class="quantity-control d-flex align-items-center gap-2">
+                  <button class="btn btn-sm btn-outline-secondary decrease-quantity" data-id="${item.id}">-</button>
+                  <input type="text" class="quantity-input form-control form-control-sm text-center" value="${item.quantity}" readonly style="width:54px;">
+                  <button class="btn btn-sm btn-outline-secondary increase-quantity" data-id="${item.id}">+</button>
+                </div>
+                <button class="btn btn-sm btn-outline-danger remove-item mt-2" data-id="${item.id}"><i class="fas fa-trash"></i> Remove</button>
+              </div>
+            </div>
+          `;
+          cartItems.innerHTML += cartItem;
+        });
+
+        document.querySelectorAll('.increase-quantity').forEach(button => {
+          button.addEventListener('click', function() { changeQuantity(parseInt(this.getAttribute('data-id')), 1); });
+        });
+        document.querySelectorAll('.decrease-quantity').forEach(button => {
+          button.addEventListener('click', function() { changeQuantity(parseInt(this.getAttribute('data-id')), -1); });
+        });
+        document.querySelectorAll('.remove-item').forEach(button => {
+          button.addEventListener('click', function() { removeFromCart(parseInt(this.getAttribute('data-id'))); });
+        });
+      }
+      updateCartTotals();
+    }
+
+    function changeQuantity(productId, change) {
+      const item = cart.find(item => item.id === productId);
+      if (item) {
+        item.quantity += change;
+        if (item.quantity <= 0) removeFromCart(productId);
+        else updateCart();
+      }
+    }
+
+    function removeFromCart(productId) {
+      cart = cart.filter(item => item.id !== productId);
+      updateCart();
+    }
+
+    function updateCartTotals() {
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      const shipping = subtotal > 0 ? 200 : 0;
+      const total = subtotal + shipping;
+      document.getElementById('cartSubtotal').textContent = `Rs. ${subtotal.toLocaleString()}`;
+      document.getElementById('cartShipping').textContent = `Rs. ${shipping.toLocaleString()}`;
+      document.getElementById('cartTotal').textContent = `Rs. ${total.toLocaleString()}`;
+      updateCheckoutSummary();
+    }
+
+    function updateCheckoutSummary() {
+      const checkoutSummary = document.getElementById('checkoutSummary');
+      checkoutSummary.innerHTML = '';
+      cart.forEach(item => {
+        checkoutSummary.innerHTML += `<div class="d-flex justify-content-between mb-2"><span>${item.name} x${item.quantity}</span><span>Rs. ${(item.price * item.quantity).toLocaleString()}</span></div>`;
+      });
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      const shipping = subtotal > 0 ? 200 : 0;
+      const total = subtotal + shipping;
+      checkoutSummary.innerHTML += `<hr><div class="d-flex justify-content-between mb-2"><span>Subtotal:</span><span>Rs. ${subtotal.toLocaleString()}</span></div><div class="d-flex justify-content-between mb-2"><span>Shipping:</span><span>Rs. ${shipping.toLocaleString()}</span></div><div class="d-flex justify-content-between fw-bold"><span>Total:</span><span>Rs. ${total.toLocaleString()}</span></div>`;
+    }
+
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.className = 'alert alert-success position-fixed';
+      notification.style.top = '20px';
+      notification.style.right = '20px';
+      notification.style.zIndex = '1060';
+      notification.textContent = message;
+      document.body.appendChild(notification);
+      setTimeout(() => notification.remove(), 3000);
+    }
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', function() {
+      displayProducts();
+      updateCart();
+
+      // Cart sidebar toggles
+      document.getElementById('cartIcon').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('cartSidebar').classList.add('open');
+        document.getElementById('cartOverlay').classList.add('show');
+      });
+      document.getElementById('closeCart').addEventListener('click', function() {
+        document.getElementById('cartSidebar').classList.remove('open');
+        document.getElementById('cartOverlay').classList.remove('show');
+      });
+      document.getElementById('cartOverlay').addEventListener('click', function() {
+        document.getElementById('cartSidebar').classList.remove('open');
+        this.classList.remove('show');
+      });
+
+      document.getElementById('checkoutBtn').addEventListener('click', function() {
+        if (cart.length === 0) { alert('Your cart is empty.'); return; }
+        document.getElementById('cartSidebar').classList.remove('open');
+        document.getElementById('cartOverlay').classList.remove('show');
+        document.getElementById('checkoutPage').style.display = 'block';
+        window.scrollTo(0,0);
+      });
+
+      document.getElementById('placeOrderBtn').addEventListener('click', function() {
+        const form = document.getElementById('checkoutForm');
+        if (form.checkValidity()) {
+          alert('Order placed successfully! Thank you for shopping with Elegant Wear.');
+          cart = []; updateCart();
+          document.getElementById('checkoutPage').style.display = 'none';
+          form.reset();
+        } else form.reportValidity();
+      });
+
+      // Newsletter submit (simple)
+      document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value.trim();
+        if (email) {
+          showNotification('Thanks for subscribing!');
+          this.reset();
+        }
+      });
+    });
+    
+  </script>
+  <!-- ONLY one bootstrap bundle — add this at end of body -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
